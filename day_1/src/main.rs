@@ -3,7 +3,13 @@ use std::fs::read_to_string;
 fn main() {
     let mut elf_values = decode_elf_calories(vectorizar_txt("input.txt"));
     elf_values.sort();
-    println!("{}", elf_values[elf_values.len()-1]);
+    println!("Resultado Parte 1: {}", elf_values[elf_values.len()-1]);
+
+    let result_part2: u32 = elf_values[elf_values.len()-1]
+                          + elf_values[elf_values.len()-2]
+                          + elf_values[elf_values.len()-3];
+
+    println!("Resultado Parte 2: {}", result_part2);
 }
 
 fn vectorizar_txt(filename: &str) -> Vec<String> {
